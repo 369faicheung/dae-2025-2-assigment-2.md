@@ -85,10 +85,7 @@ async function loadItems() {
     image_url: string
     video_url: string
     published_at: string
-    // components: string[]
-    "prerequisites": {
-      "prerequisite": string
-    }[]
+    prerequisites: string[]
   }
   let items = json.items as Item[]
   console.log('items:', items)
@@ -101,7 +98,7 @@ async function loadItems() {
 
     card.querySelector('.item-title')!.textContent = item.title
     card.querySelector('.item-subtitle')!.textContent =
-      item.prerequisites.map(prerequisite=>prerequisite.prerequisite).join(', ') + ' | ' + item.level
+      item.prerequisites.join(', ') + ' | ' + item.level
 
     let favoriteBtn = card.querySelector('.favorite-btn')!
     let favoriteIcon = favoriteBtn.querySelector('ion-icon')!
